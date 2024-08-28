@@ -1,0 +1,22 @@
+
+Singleton:Quando você precisa de uma única instância de um bean que seja 
+compartilhada por toda a aplicação, como um serviço que gerencia 
+recursos globais. ----- Vem por padrão
+
+Prototype:Quando você precisa de uma nova instância do bean a cada 
+vez que ele é usado, como objetos com estado que devem ser 
+independentes entre si. ----- Precisa da Anotação '@Scope("prototype")'
+
+Request:Quando você precisa que os dados sejam específicos para uma 
+única requisição HTTP, como informações sobre o usuário autenticado 
+na requisição atual.
+'@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)'
+
+Session: Quando você precisa que os dados sejam mantidos ao longo 
+de várias requisições dentro da mesma sessão do usuário, como 
+carrinho de compras em uma aplicação de e-commerce.
+'@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)'
+
+Application:Quando você precisa de um bean que seja compartilhado
+em toda a aplicação web, independentemente das sessões ou requisições.
+'@Scope(value = WebApplicationContext.SCOPE_APPLICATION)'
